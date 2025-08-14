@@ -1,337 +1,499 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Manuheleku</title>
-  <meta name="description" content="海外の最先端アプリ風ダークテーマ - Webサイト制作・ECサイト制作・AI最先端情報" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="stylesheet" href="./style.css">
-  <style>
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    .section{padding:72px 0}
-    .hero-background{position:absolute;inset:0;
-      background:radial-gradient(600px circle at 0 0,rgba(99,102,241,.15),transparent 40%),
-                 radial-gradient(800px circle at 100% 20%,rgba(236,72,153,.15),transparent 40%);
-      pointer-events:none}
-    .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-    .post-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
-    .post-thumbnail img{width:100%;height:180px;object-fit:cover;display:block}
-    .post-content{padding:16px}
-    .news-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-    .filter-btn{padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:transparent}
-    .filter-btn.active{background:#6366f1;color:#fff;border-color:#6366f1}
-    .glass{backdrop-filter: blur(6px);background: rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:16px}
-    .site-header .header-container{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .site-header .menu{display:flex;gap:16px;list-style:none;margin:0;padding:0}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.15);border-radius:10px}
-    .header-cta{border-color:rgba(99,102,241,.35)}
-  </style>
-</head>
-<body>
-<header id="masthead" class="site-header">
-  <div class="container header-container">
-    <a href="/" class="site-logo" aria-label="Manuheleku" style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;">
-      <span class="logo-mark" style="background:#111827;color:#fff;border-radius:10px;padding:8px 10px;font-weight:700;letter-spacing:1px;">M</span>
-      <span class="logo-text" style="font-weight:700">Manuheleku</span>
-    </a>
-    <nav id="site-navigation" class="main-navigation">
-      <ul id="primary-menu" class="menu">
-        <li><a href="#services">サービス</a></li>
-        <li><a href="#about">会社概要</a></li>
-        <li><a href="#ai-news">AI最先端情報</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-      </ul>
-    </nav>
-    <a href="#contact" class="btn header-cta">無料相談</a>
-  </div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Manuheleku</title>
+    <meta
+      name="description"
+      content="海外の最先端アプリ風ダークテーマ - Webサイト制作・ECサイト制作・AI最先端情報"
+    />
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --card: rgba(255, 255, 255, 0.06);
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #e5e7eb;
+        --muted: #a1a1aa;
+        --brand: #6366f1;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 15, 23, 0.9),
+          rgba(11, 15, 23, 0.5)
+        );
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo .mark {
+        background: #111827;
+        color: #fff;
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-weight: 700;
+      }
+      .menu {
+        display: flex;
+        gap: 16px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .btn {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 10px 14px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .btn-primary {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+      .section {
+        padding: 72px 0;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 56px 0 24px;
+      }
+      .bgfx {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+            600px circle at 0 0,
+            rgba(99, 102, 241, 0.18),
+            transparent 40%
+          ),
+          radial-gradient(
+            800px circle at 100% 20%,
+            rgba(236, 72, 153, 0.18),
+            transparent 40%
+          );
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 12px;
+        text-align: center;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0 20px;
+      }
+      .pill {
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: transparent;
+      }
+      .pill.active {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+      .posts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+      }
+      .post {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .thumb {
+        height: 180px;
+        overflow: hidden;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+      }
+      /* reveal animation without external libs */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0.2em 0 0.4em;
+      }
+      .muted {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="logo" href="/"
+          ><span class="mark">M</span><strong>Manuheleku</strong></a
+        >
+        <nav>
+          <ul class="menu">
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#about">会社概要</a></li>
+            <li><a href="#ai-news">AI最先端情報</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <a class="btn" href="#contact">無料相談</a>
+      </div>
+    </header>
 
-<main id="primary" class="site-main">
-
-
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-background"></div>
-            <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1 class="hero-title">
-                        
-                    </h1>
-                    <p class="hero-subtitle">
-                        
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#services" class="btn btn-primary">サービスを見る</a>
-                        <a href="#contact" class="btn btn-secondary">お問い合わせ</a>
-                    </div>
-                </div>
-
-                    <div class="hero-image" data-aos="fade-up" data-aos-delay="200">
-                        <img src="" alt="Manuheleku Hero Image">
-                    </div>
-                
-                    <div class="hero-image" data-aos="fade-up" data-aos-delay="200">
-                        <img src=".assets/images/manuheleku-main.png" alt="Manuheleku - 未来を創るデジタル体験">
-                    </div>
-                
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services-section section">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>私たちのサービス</h2>
-                    <p class="section-subtitle">最先端の技術と創造性で、あなたのビジネスを成功に導きます</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section section">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text" data-aos="fade-right">
-                        <h2>Manuhelekuについて</h2>
-                        <p>私たちは、デジタル技術の力でビジネスの可能性を最大化することを使命としています。海外の最先端アプリのような洗練されたデザインと、確かな技術力で、お客様のビジョンを現実に変えます。</p>
-                        <p>AI技術の最前線で活動する私たちだからこそ提供できる、未来志向のソリューションをお届けします。</p>
-                        
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">100+</span>
-                                <span class="stat-label">完了プロジェクト</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">満足クライアント</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">サポート体制</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">5年</span>
-                                <span class="stat-label">業界経験</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-image" data-aos="fade-left">
-                        <img src=".assets/images/web_design_modern_1.jpg" alt="About Manuheleku" class="glass">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI News Section -->
-        <section id="ai-news" class="ai-news-section section">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>AI技術の最前線</h2>
-                    <p class="section-subtitle">最新のAI技術動向、実用的な活用事例、そして未来への展望をわかりやすくお届けします</p>
-                </div>
-                
-                <div class="news-filters" data-aos="fade-up" data-aos-delay="100">
-                    <button class="filter-btn active" data-category="all">すべて</button>
-                    <button class="filter-btn" data-category="machine-learning">機械学習</button>
-                    <button class="filter-btn" data-category="automation">自動化</button>
-                    <button class="filter-btn" data-category="tools">AIツール</button>
-                </div>
-
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <a href="" class="btn btn-primary">すべての記事を見る</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section section">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>お問い合わせ</h2>
-                    <p class="section-subtitle">プロジェクトのご相談やお見積もりなど、お気軽にお問い合わせください</p>
-                </div>
-                
-                <div class="contact-content">
-                    <div class="contact-info" data-aos="fade-right">
-                        <h3>お気軽にご連絡ください</h3>
-                        <p>私たちは、あなたのビジネスの成功をサポートするために、常にお客様との対話を大切にしています。</p>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>メールアドレス</h4>
-                                <p></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>電話番号</h4>
-                                <p></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>所在地</h4>
-                                <p></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>営業時間</h4>
-                                <p>平日 9:00-18:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form-container" data-aos="fade-left">
-                        
-<form class="contact-form glass" action="#" method="post" onsubmit="alert('ありがとうございます！（デモ送信）');return false;" style="padding:16px;display:grid;gap:12px">
-  <input type="text" name="name" placeholder="お名前" required>
-  <input type="email" name="email" placeholder="メールアドレス" required>
-  <textarea name="message" rows="5" placeholder="お問い合わせ内容" required></textarea>
-  <button type="submit" class="btn btn-primary">送信</button>
-</form>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Standard Blog/Archive Layout -->
+    <main>
+      <section class="hero">
+        <div class="bgfx"></div>
         <div class="container">
-            <div class="content-area">
-
-                    <header class="page-header">
-                        
-                    </header>
-
-                    <div class="posts-grid">
-                        
-                            <article id="post-" >
-
-                                    <div class="post-thumbnail">
-                                        <a href="">
-                                            
-                                        </a>
-                                    </div>
-
-                                <div class="post-content">
-                                    <div class="post-meta">
-                                        <span class="post-date"></span>
-
-                                                <span class="post-category"></span>
-
-                                            <span class="post-category"></span>
-                                        
-                                    </div>
-                                    
-                                    <h2 class="post-title">
-                                        <a href=""></a>
-                                    </h2>
-                                    
-                                    <div class="post-excerpt">
-                                        
-                                    </div>
-                                    
-                                    <a href="" class="read-more">続きを読む</a>
-                                </div>
-                            </article>
-                        
-                    </div>
-
-                    <section class="no-results not-found">
-                        <header class="page-header">
-                            <h1 class="page-title"></h1>
-                        </header>
-
-                        <div class="page-content">
-                            
-                                <p></p>
-                            
-                                <p></p>
-
-                                <p></p>
-
-                        </div>
-                    </section>
-
+          <div class="reveal">
+            <h1 style="font-size: clamp(28px, 5vw, 44px); margin-bottom: 0.2em">
+              未来を創るデジタル体験
+            </h1>
+            <p class="muted" style="max-width: 720px">
+              Manuhelekuは、最先端のWebサイト制作・ECサイト制作を通じて、あなたのビジネスを次のレベルへと導きます。
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 12px;
+              "
+            >
+              <a class="btn btn-primary" href="#services">サービスを見る</a>
+              <a class="btn" href="#contact">お問い合わせ</a>
             </div>
+          </div>
+          <div class="reveal" style="margin-top: 28px">
+            <img
+              style="border-radius: 16px; border: 1px solid var(--line)"
+              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80"
+              alt="Hero"
+            />
+          </div>
         </div>
+      </section>
 
+      <section id="services" class="section">
+        <div class="container">
+          <div class="reveal">
+            <h2>私たちのサービス</h2>
+            <p class="muted">
+              最先端の技術と創造性で、あなたのビジネスを成功に導きます
+            </p>
+          </div>
+          <div class="cards">
+            <div class="card reveal">
+              <h3>Webサイト制作</h3>
+              <p>高速・モダン・SEO最適化。</p>
+            </div>
+            <div class="card reveal">
+              <h3>ECサイト構築</h3>
+              <p>Shopify/Stripe連携。</p>
+            </div>
+            <div class="card reveal">
+              <h3>UI/UXデザイン</h3>
+              <p>海外アプリ風の洗練UI。</p>
+            </div>
+            <div class="card reveal">
+              <h3>AI自動化</h3>
+              <p>業務プロセスの効率化。</p>
+            </div>
+            <div class="card reveal">
+              <h3>高速ホスティング</h3>
+              <p>CDN/SSL/解析。</p>
+            </div>
+            <div class="card reveal">
+              <h3>運用保守</h3>
+              <p>監視・改善・追加開発。</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-</main>
+      <section id="about" class="section">
+        <div class="container grid">
+          <div class="reveal">
+            <h2>Manuhelekuについて</h2>
+            <p>
+              私たちは、デジタル技術の力でビジネスの可能性を最大化することを使命としています。海外の最先端アプリのような洗練されたデザインと、確かな技術力で、お客様のビジョンを現実に変えます。
+            </p>
+            <p>
+              AI技術の最前線で活動する私たちだからこそ提供できる、未来志向のソリューションをお届けします。
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <strong>100+</strong>
+                <div class="muted">完了プロジェクト</div>
+              </div>
+              <div class="stat">
+                <strong>50+</strong>
+                <div class="muted">満足クライアント</div>
+              </div>
+              <div class="stat">
+                <strong>24/7</strong>
+                <div class="muted">サポート体制</div>
+              </div>
+              <div class="stat">
+                <strong>5年</strong>
+                <div class="muted">業界経験</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <img
+              class="card"
+              style="padding: 0"
+              src="https://images.unsplash.com/photo-1523473827532-5f1632816c52?auto=format&fit=crop&w=1600&q=80"
+              alt="About"
+            />
+          </div>
+        </div>
+      </section>
 
-<footer id="colophon" class="site-footer section">
-  <div class="container">
-    <div class="footer-content" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
-      <div class="footer-section glass" style="padding:16px">
-        <h4>Manuheleku</h4>
-        <p>海外の最先端アプリ風デザインで、あなたのビジネスを次のレベルへと導くデジタルエージェンシーです。</p>
+      <section id="ai-news" class="section">
+        <div class="container">
+          <div class="reveal">
+            <h2>AI技術の最前線</h2>
+            <p class="muted">
+              最新のAI技術動向、実用的な活用事例、そして未来への展望をわかりやすくお届けします
+            </p>
+          </div>
+          <div class="filters reveal">
+            <button class="pill active" data-cat="all">すべて</button>
+            <button class="pill" data-cat="ml">機械学習</button>
+            <button class="pill" data-cat="auto">自動化</button>
+            <button class="pill" data-cat="tools">AIツール</button>
+          </div>
+          <div class="posts">
+            <article class="post reveal" data-cat="ml">
+              <div class="thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+                  alt=""
+                />
+              </div>
+              <div style="padding: 16px">
+                <div class="muted">2025-08-10 ・ 機械学習</div>
+                <h3>最新モデルで売上20%改善</h3>
+                <p class="muted">レコメンド導入でCVが向上した事例。</p>
+              </div>
+            </article>
+            <article class="post reveal" data-cat="auto">
+              <div class="thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80"
+                  alt=""
+                />
+              </div>
+              <div style="padding: 16px">
+                <div class="muted">2025-08-08 ・ 自動化</div>
+                <h3>バックオフィスを自動化</h3>
+                <p class="muted">エージェントで月40h削減の実装例。</p>
+              </div>
+            </article>
+            <article class="post reveal" data-cat="tools">
+              <div class="thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&w=1200&q=80"
+                  alt=""
+                />
+              </div>
+              <div style="padding: 16px">
+                <div class="muted">2025-08-05 ・ AIツール</div>
+                <h3>制作に効くAIツール5選</h3>
+                <p class="muted">デザイン・コーディング支援の最新トレンド。</p>
+              </div>
+            </article>
+          </div>
+          <div style="text-align: center; margin-top: 16px" class="reveal">
+            <a class="btn btn-primary" href="#">すべての記事を見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container grid">
+          <div class="card reveal">
+            <h2>お問い合わせ</h2>
+            <p class="muted">
+              プロジェクトのご相談やお見積もりなど、お気軽にお問い合わせください
+            </p>
+            <div><i>メール</i>：info@manuheleku.com</div>
+            <div><i>電話</i>：+81-3-1234-5678</div>
+            <div><i>所在地</i>：東京都渋谷区</div>
+          </div>
+          <form
+            class="card reveal"
+            onsubmit="alert('ありがとうございます！（デモ送信）');return false"
+            style="display: grid; gap: 12px"
+          >
+            <input required placeholder="お名前" /><input
+              required
+              type="email"
+              placeholder="メールアドレス"
+            />
+            <textarea
+              rows="5"
+              required
+              placeholder="お問い合わせ内容"
+            ></textarea>
+            <button class="btn btn-primary" type="submit">送信</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h4>Manuheleku</h4>
+            <p class="muted">
+              海外の最先端アプリ風デザインで、あなたのビジネスを次のレベルへ。
+            </p>
+          </div>
+          <div class="card">
+            <h4>クイックリンク</h4>
+            <p>
+              <a href="#services">サービス</a> / <a href="#about">会社概要</a> /
+              <a href="#ai-news">AI最先端情報</a> /
+              <a href="#contact">お問い合わせ</a>
+            </p>
+          </div>
+          <div class="card">
+            <h4>ニュースレター</h4>
+            <form
+              onsubmit="alert('ありがとうございます！');return false"
+              style="display: flex; gap: 8px"
+            >
+              <input
+                type="email"
+                required
+                placeholder="メールアドレス"
+              /><button class="btn btn-primary">登録</button>
+            </form>
+          </div>
+        </div>
+        <p class="muted" style="text-align: center; margin-top: 12px">
+          &copy; <span id="y"></span> Manuheleku
+        </p>
       </div>
-      <div class="footer-section glass" style="padding:16px">
-        <h4>クイックリンク</h4>
-        <ul class="footer-links" style="list-style:none;padding:0">
-          <li><a href="#services">サービス</a></li>
-          <li><a href="#about">会社概要</a></li>
-          <li><a href="#ai-news">AI最先端情報</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
-        </ul>
-      </div>
-      <div class="footer-section glass" style="padding:16px">
-        <h4>ニュースレター</h4>
-        <form class="newsletter-form" action="#" method="post" onsubmit="alert('ありがとうございます！'); return false;">
-          <input type="email" name="email" placeholder="メールアドレス" required>
-          <button type="submit" class="btn btn-primary">登録</button>
-        </form>
-      </div>
-    </div>
-    <div class="site-info" style="text-align:center;margin-top:16px">
-      <p>&copy; <span id="year"></span> Manuheleku. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ once:true, duration:700, offset:40 });
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href').slice(1); if(!id) return;
-    const el=document.getElementById(id); if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-  }));
-  // Category filter
-  document.addEventListener('click',e=>{
-    if(!e.target.matches('.filter-btn')) return;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    e.target.classList.add('active');
-    const cat=e.target.dataset.category;
-    document.querySelectorAll('.post-card').forEach(c=>{
-      c.style.display = (cat==='all'||c.dataset.category===cat) ? '' : 'none';
-    });
-  });
-</script>
-<script src="./assets/js/main.js"></script>
-</body>
+    <script>
+      // year
+      document.getElementById("y").textContent = new Date().getFullYear();
+      // smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((a) =>
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href").slice(1),
+            el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        })
+      );
+      // reveal on scroll
+      const io = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => e.isIntersecting && e.target.classList.add("show")),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+      // filter
+      document.querySelectorAll(".pill").forEach((b) =>
+        b.addEventListener("click", () => {
+          document
+            .querySelectorAll(".pill")
+            .forEach((x) => x.classList.remove("active"));
+          b.classList.add("active");
+          const cat = b.dataset.cat;
+          document.querySelectorAll(".post").forEach((p) => {
+            p.style.display =
+              cat === "all" || p.dataset.cat === cat ? "" : "none";
+          });
+        })
+      );
+    </script>
+  </body>
 </html>
