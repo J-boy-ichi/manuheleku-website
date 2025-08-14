@@ -1,41 +1,59 @@
-<?php
-/**
- * The main template file
- * Manuheleku WordPress Theme
- */
-
-get_header(); ?>
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manuheleku</title>
+<meta name="description" content="海外の最先端アプリ風ダークテーマ - Webサイト制作・ECサイト制作・AI最先端情報">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="./style.css">
+</head><body>
+<header id="masthead" class="site-header">
+  <div class="header-container" style="display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:16px 20px">
+    <a href="/" class="site-logo" aria-label="Manuheleku" style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;">
+      <span class="logo-mark" style="background:#111827;color:#fff;border-radius:10px;padding:8px 10px;font-weight:700;letter-spacing:1px;">M</span>
+      <span class="logo-text" style="font-weight:700">Manuheleku</span>
+    </a>
+    <nav id="site-navigation" class="main-navigation">
+      <ul id="primary-menu" class="menu" style="display:flex;gap:16px;list-style:none;margin:0;padding:0;">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#about">会社概要</a></li>
+        <li><a href="#ai-news">AI最先端情報</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary header-cta" style="padding:10px 14px;border:1px solid rgba(255,255,255,.15);border-radius:10px;">無料相談</a>
+  </div>
+</header>
 
 <main id="primary" class="site-main">
-    
-    <?php if (is_home() || is_front_page()) : ?>
-        
+
+
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-background"></div>
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
                     <h1 class="hero-title">
-                        <?php echo esc_html(get_theme_mod('hero_title', '未来を創るデジタル体験')); ?>
+                        
                     </h1>
                     <p class="hero-subtitle">
-                        <?php echo esc_html(get_theme_mod('hero_subtitle', 'Manuhelekuは、最先端のWebサイト制作・ECサイト制作を通じて、あなたのビジネスを次のレベルへと導きます。')); ?>
+                        
                     </p>
                     <div class="hero-buttons">
                         <a href="#services" class="btn btn-primary">サービスを見る</a>
                         <a href="#contact" class="btn btn-secondary">お問い合わせ</a>
                     </div>
                 </div>
+
+                    <div class="hero-image" data-aos="fade-up" data-aos-delay="200">
+                        <img src="" alt="Manuheleku Hero Image">
+                    </div>
                 
-                <?php if (get_theme_mod('hero_image')) : ?>
                     <div class="hero-image" data-aos="fade-up" data-aos-delay="200">
-                        <img src="<?php echo esc_url(get_theme_mod('hero_image')); ?>" alt="Manuheleku Hero Image">
+                        <img src=".assets/images/manuheleku-main.png" alt="Manuheleku - 未来を創るデジタル体験">
                     </div>
-                <?php else : ?>
-                    <div class="hero-image" data-aos="fade-up" data-aos-delay="200">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/manuheleku-main.png" alt="Manuheleku - 未来を創るデジタル体験">
-                    </div>
-                <?php endif; ?>
+                
             </div>
         </section>
 
@@ -46,8 +64,7 @@ get_header(); ?>
                     <h2>私たちのサービス</h2>
                     <p class="section-subtitle">最先端の技術と創造性で、あなたのビジネスを成功に導きます</p>
                 </div>
-                
-                <?php echo do_shortcode('[services_grid columns="3"]'); ?>
+
             </div>
         </section>
 
@@ -81,7 +98,7 @@ get_header(); ?>
                     </div>
                     
                     <div class="about-image" data-aos="fade-left">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/web_design_modern_1.jpg" alt="About Manuheleku" class="glass">
+                        <img src=".assets/images/web_design_modern_1.jpg" alt="About Manuheleku" class="glass">
                     </div>
                 </div>
             </div>
@@ -101,11 +118,9 @@ get_header(); ?>
                     <button class="filter-btn" data-category="automation">自動化</button>
                     <button class="filter-btn" data-category="tools">AIツール</button>
                 </div>
-                
-                <?php echo do_shortcode('[latest_ai_news count="6"]'); ?>
-                
+
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <a href="<?php echo get_post_type_archive_link('ai_news'); ?>" class="btn btn-primary">すべての記事を見る</a>
+                    <a href="" class="btn btn-primary">すべての記事を見る</a>
                 </div>
             </div>
         </section>
@@ -129,7 +144,7 @@ get_header(); ?>
                             </div>
                             <div class="contact-details">
                                 <h4>メールアドレス</h4>
-                                <p><?php echo esc_html(get_theme_mod('company_email', 'info@manuheleku.com')); ?></p>
+                                <p></p>
                             </div>
                         </div>
                         
@@ -139,7 +154,7 @@ get_header(); ?>
                             </div>
                             <div class="contact-details">
                                 <h4>電話番号</h4>
-                                <p><?php echo esc_html(get_theme_mod('company_phone', '+81-3-1234-5678')); ?></p>
+                                <p></p>
                             </div>
                         </div>
                         
@@ -149,7 +164,7 @@ get_header(); ?>
                             </div>
                             <div class="contact-details">
                                 <h4>所在地</h4>
-                                <p><?php echo esc_html(get_theme_mod('company_address', '東京都渋谷区')); ?></p>
+                                <p></p>
                             </div>
                         </div>
                         
@@ -165,118 +180,133 @@ get_header(); ?>
                     </div>
                     
                     <div class="contact-form-container" data-aos="fade-left">
-                        <?php get_template_part('template-parts/contact-form'); ?>
+                        
+<form class="contact-form" action="#" method="post" onsubmit="alert('ありがとうございます！送信テストです');return false;">
+  <div style="display:grid;gap:12px">
+    <input type="text" name="name" placeholder="お名前" required>
+    <input type="email" name="email" placeholder="メールアドレス" required>
+    <textarea name="message" rows="5" placeholder="お問い合わせ内容" required></textarea>
+    <button type="submit" class="btn btn-primary">送信</button>
+  </div>
+</form>
+
                     </div>
                 </div>
             </div>
         </section>
 
-    <?php else : ?>
-        
         <!-- Standard Blog/Archive Layout -->
         <div class="container">
             <div class="content-area">
-                
-                <?php if (have_posts()) : ?>
-                    
+
                     <header class="page-header">
-                        <?php
-                        the_archive_title('<h1 class="page-title">', '</h1>');
-                        the_archive_description('<div class="archive-description">', '</div>');
-                        ?>
+                        
                     </header>
 
                     <div class="posts-grid">
-                        <?php while (have_posts()) : the_post(); ?>
-                            <article id="post-<?php the_ID(); ?>" <?php post_class('post-card'); ?>>
-                                
-                                <?php if (has_post_thumbnail()) : ?>
+                        
+                            <article id="post-" >
+
                                     <div class="post-thumbnail">
-                                        <a href="<?php the_permalink(); ?>">
-                                            <?php the_post_thumbnail('news-thumbnail'); ?>
+                                        <a href="">
+                                            
                                         </a>
                                     </div>
-                                <?php endif; ?>
-                                
+
                                 <div class="post-content">
                                     <div class="post-meta">
-                                        <span class="post-date"><?php echo get_the_date(); ?></span>
-                                        <?php if (get_post_type() === 'ai_news') : ?>
-                                            <?php
-                                            $categories = get_the_terms(get_the_ID(), 'ai_category');
-                                            if ($categories && !is_wp_error($categories)) :
-                                            ?>
-                                                <span class="post-category"><?php echo esc_html($categories[0]->name); ?></span>
-                                            <?php endif; ?>
-                                        <?php else : ?>
-                                            <span class="post-category"><?php the_category(', '); ?></span>
-                                        <?php endif; ?>
+                                        <span class="post-date"></span>
+
+                                                <span class="post-category"></span>
+
+                                            <span class="post-category"></span>
+                                        
                                     </div>
                                     
                                     <h2 class="post-title">
-                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        <a href=""></a>
                                     </h2>
                                     
                                     <div class="post-excerpt">
-                                        <?php the_excerpt(); ?>
+                                        
                                     </div>
                                     
-                                    <a href="<?php the_permalink(); ?>" class="read-more">続きを読む</a>
+                                    <a href="" class="read-more">続きを読む</a>
                                 </div>
                             </article>
-                        <?php endwhile; ?>
+                        
                     </div>
 
-                    <?php
-                    the_posts_pagination(array(
-                        'mid_size' => 2,
-                        'prev_text' => __('前へ', 'manuheleku'),
-                        'next_text' => __('次へ', 'manuheleku'),
-                    ));
-                    ?>
-
-                <?php else : ?>
-                    
                     <section class="no-results not-found">
                         <header class="page-header">
-                            <h1 class="page-title"><?php esc_html_e('何も見つかりませんでした', 'manuheleku'); ?></h1>
+                            <h1 class="page-title"></h1>
                         </header>
 
                         <div class="page-content">
-                            <?php if (is_home() && current_user_can('publish_posts')) : ?>
-                                <p><?php
-                                    printf(
-                                        wp_kses(
-                                            __('投稿を開始するには<a href="%1$s">こちら</a>をクリックしてください。', 'manuheleku'),
-                                            array(
-                                                'a' => array(
-                                                    'href' => array(),
-                                                ),
-                                            )
-                                        ),
-                                        esc_url(admin_url('post-new.php'))
-                                    );
-                                ?></p>
-                            <?php elseif (is_search()) : ?>
-                                <p><?php esc_html_e('検索キーワードに一致するものが見つかりませんでした。別のキーワードで再度お試しください。', 'manuheleku'); ?></p>
-                                <?php get_search_form(); ?>
-                            <?php else : ?>
-                                <p><?php esc_html_e('ここには何もありません。検索をお試しください。', 'manuheleku'); ?></p>
-                                <?php get_search_form(); ?>
-                            <?php endif; ?>
+                            
+                                <p></p>
+                            
+                                <p></p>
+
+                                <p></p>
+
                         </div>
                     </section>
 
-                <?php endif; ?>
-                
             </div>
         </div>
-        
-    <?php endif; ?>
+
 
 </main>
 
-<?php
-get_footer();
-?>
-
+<footer id="colophon" class="site-footer" style="padding:72px 0">
+  <div class="container" style="max-width:1120px;margin:0 auto;padding:0 20px">
+    <div class="footer-content" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+      <div class="footer-section" style="padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.05)">
+        <h4>Manuheleku</h4>
+        <p>海外の最先端アプリ風デザインで、あなたのビジネスを次のレベルへと導くデジタルエージェンシーです。</p>
+        <p><i class="fas fa-envelope"></i> info@manuheleku.com</p>
+        <p><i class="fas fa-phone"></i> +81-3-1234-5678</p>
+        <p><i class="fas fa-map-marker-alt"></i> 東京都渋谷区</p>
+      </div>
+      <div class="footer-section" style="padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.05)">
+        <h4>クイックリンク</h4>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#about">会社概要</a></li>
+          <li><a href="#ai-news">AI最先端情報</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section" style="padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.05)">
+        <h4>ニュースレター</h4>
+        <form action="#" method="post" onsubmit="alert('ありがとうございます！'); return false;">
+          <input type="email" name="email" placeholder="メールアドレス" required>
+          <button type="submit" class="btn btn-primary">登録</button>
+        </form>
+      </div>
+    </div>
+    <div class="site-info" style="text-align:center;margin-top:16px">
+      <p>&copy; <span id="year"></span> Manuheleku. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ once:true, duration:700, offset:40 });
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href').slice(1); if(!id) return;
+  const el=document.getElementById(id); if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+}));
+document.addEventListener('click',e=>{
+  if(!e.target.matches('.filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  const cat=e.target.dataset.category;
+  document.querySelectorAll('.post-card').forEach(c=>{ c.style.display=(cat==='all'||c.dataset.category===cat)?'':'none'; });
+});
+</script>
+<script src="./assets/js/main.js"></script>
+</body></html>
