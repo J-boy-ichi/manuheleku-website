@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Input } from '@/components/ui/input.jsx'
-import { Textarea } from '@/components/ui/textarea.jsx'
-import { Badge } from '@/components/ui/badge.jsx'
+import { Button } from '@/components/ui/button.js'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.js'
+import { Input } from '@/components/ui/input.js'
+import { Textarea } from '@/components/ui/textarea.js'
+import { Badge } from '@/components/ui/badge.js'
 import { 
   Globe, 
   ShoppingCart, 
