@@ -1,4 +1,5 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [ main ]
@@ -18,22 +19,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # ① pnpm を先にセットアップ
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # ② Node をセットアップ（ここで pnpm キャッシュを有効化）
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: true
+          cache-dependency-path: docs/pnpm-lock.yaml
+
+      # ③ 依存関係のインストール（docs 下で）
+      - run: pnpm install --frozen-lockfile
+        working-directory: docs
+
+      # ④ ビルド（出力は docs/dist 想定・Vite等）
       - run: pnpm build
-      # 404対策（SPAなら有効）
-      - run: cp dist/index.html dist/404.html
-      # カスタムドメインを使うなら、CNAMEを成果物に入れる
-      - run: test -f CNAME && cp CNAME dist/CNAME || true
+        working-directory: docs
+
+      # ⑤ SPAなら404対策 & CNAMEを成果物に含める
+      - run: cp docs/dist/index.html docs/dist/404.html || true
+      - run: test -f docs/CNAME && cp docs/CNAME docs/dist/CNAME || true
+
+      # ⑥ Pagesへアップロード
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs/dist
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
