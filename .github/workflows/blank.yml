@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm を先にセットアップ
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # Node をセットアップ（pnpm のキャッシュを利用）
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: docs/pnpm-lock.yaml
+
+      # docs 以下で依存関係をインストール
+      - run: pnpm install --frozen-lockfile
+        working-directory: docs
+
+      # ビルド
+      - run: pnpm build
+        working-directory: docs
+
+      # Single Page Application の場合は 404.html を index.html のコピーにする
+      - run: cp docs/dist/index.html docs/dist/404.html || true
+      # CNAME を dist に含める（カスタムドメイン使用時）
+      - run: test -f docs/CNAME && cp docs/CNAME docs/dist/CNAME || true
+
+      # Pages アーティファクトとしてアップロード
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
