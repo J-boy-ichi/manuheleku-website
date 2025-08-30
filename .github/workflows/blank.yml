@@ -20,31 +20,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # ① pnpm を先にセットアップ
+      # pnpm を先にセットアップ
       - uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      # ② Node をセットアップ（ここで pnpm キャッシュを有効化）
+      # Node をセットアップ（pnpm のキャッシュを利用）
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
           cache-dependency-path: docs/pnpm-lock.yaml
 
-      # ③ 依存関係のインストール（docs 下で）
+      # docs 以下で依存関係をインストール
       - run: pnpm install --frozen-lockfile
         working-directory: docs
 
-      # ④ ビルド（出力は docs/dist 想定・Vite等）
+      # ビルド
       - run: pnpm build
         working-directory: docs
 
-      # ⑤ SPAなら404対策 & CNAMEを成果物に含める
+      # Single Page Application の場合は 404.html を index.html のコピーにする
       - run: cp docs/dist/index.html docs/dist/404.html || true
+      # CNAME を dist に含める（カスタムドメイン使用時）
       - run: test -f docs/CNAME && cp docs/CNAME docs/dist/CNAME || true
 
-      # ⑥ Pagesへアップロード
+      # Pages アーティファクトとしてアップロード
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/dist
