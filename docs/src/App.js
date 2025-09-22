@@ -21,7 +21,20 @@ import {
   Headphones,
   ChevronRight,
   Menu,
-  X
+  X,
+  Rocket,
+  ShieldCheck,
+  BarChart3,
+  Sparkles,
+  Lightbulb,
+  Layers,
+  Cpu,
+  Quote,
+  TrendingUp,
+  BookOpen,
+  Calendar,
+  MessageCircle,
+  CheckCircle
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import manuhelekuMain from './assets/manuheleku-main.png'
@@ -115,6 +128,188 @@ function App() {
     { icon: Users, label: "完了プロジェクト", value: "100+" },
     { icon: Star, label: "満足クライアント", value: "50+" },
     { icon: Headphones, label: "サポート体制", value: "24/7" }
+  ]
+
+  const valueProps = [
+    {
+      icon: Rocket,
+      title: "高速なプロダクト投入",
+      description: "アジャイル開発と自動化パイプラインでアイデアを迅速にローンチ"
+    },
+    {
+      icon: ShieldCheck,
+      title: "堅牢なセキュリティ",
+      description: "設計段階からセキュリティを考慮し、信頼できるユーザー体験を提供"
+    },
+    {
+      icon: BarChart3,
+      title: "データドリブン改善",
+      description: "計測設計と分析ダッシュボードで継続的にUXを最適化"
+    },
+    {
+      icon: Sparkles,
+      title: "モダンなUI演出",
+      description: "海外SaaSトレンドを取り入れた洗練されたインタラクション"
+    }
+  ]
+
+  const caseStudies = [
+    {
+      id: 'Case 01',
+      title: "グローバルECプラットフォーム",
+      industry: "リテール",
+      summary: "越境EC向けにパフォーマンス最適化とUX刷新を実施",
+      metrics: [
+        { label: "CVR", value: "+128%" },
+        { label: "PV", value: "+84%" }
+      ],
+      highlights: [
+        "Next.js + headless CMSで運用負荷を削減",
+        "Lighthouse 95点以上を継続確保"
+      ]
+    },
+    {
+      id: 'Case 02',
+      title: "AIサブスクリプションサービス",
+      industry: "SaaS",
+      summary: "マルチモーダルAIを活用した予約支援アプリを構築",
+      metrics: [
+        { label: "利用継続率", value: "92%" },
+        { label: "CSAT", value: "4.8/5" }
+      ],
+      highlights: [
+        "音声操作とチャットUIを統合",
+        "Stripe Billingで課金自動化"
+      ]
+    },
+    {
+      id: 'Case 03',
+      title: "製造業向けIoTダッシュボード",
+      industry: "製造",
+      summary: "リアルタイム監視と異常検知を備えたデータ基盤を構築",
+      metrics: [
+        { label: "アラート削減", value: "-63%" },
+        { label: "導入拠点", value: "12" }
+      ],
+      highlights: [
+        "WebGLグラフで機器ステータスを可視化",
+        "エッジAI連携でダウンタイムを最小化"
+      ]
+    }
+  ]
+
+  const workflowSteps = [
+    {
+      icon: Lightbulb,
+      title: "リサーチ & 戦略設計",
+      description: "ビジネスゴールとユーザー課題を整理し、KPIとロードマップを策定"
+    },
+    {
+      icon: Layers,
+      title: "UX/UIプロトタイピング",
+      description: "Figmaプロトタイプとユーザーテストで体験価値を検証"
+    },
+    {
+      icon: Cpu,
+      title: "開発 & アジャイル改善",
+      description: "モダンスタックで実装し、スプリントごとにレビューと改善を実施"
+    },
+    {
+      icon: CheckCircle,
+      title: "リリース & グロース支援",
+      description: "運用・計測体制を整備し、継続的な成長施策を伴走サポート"
+    }
+  ]
+
+  const testimonials = [
+    {
+      name: "山口 拓真",
+      role: "プロダクトマネージャー",
+      company: "Aurora Labs",
+      quote: "短期間で海外SaaSレベルのUIに刷新でき、カスタマーサクセス指標が飛躍的に改善しました。コミュニケーションもスムーズで安心して任せられました。"
+    },
+    {
+      name: "佐藤 智子",
+      role: "マーケティング責任者",
+      company: "Nova Commerce",
+      quote: "初回のヒアリングからデータを軸に提案してくれたのが印象的でした。ABテストが回しやすい設計で、CVRが着実に伸びています。"
+    }
+  ]
+
+  const techStack = [
+    {
+      category: "Frontend",
+      items: ["Next.js", "React", "Vite", "Tailwind CSS"]
+    },
+    {
+      category: "Backend / Infra",
+      items: ["Laravel", "Supabase", "Firebase", "PlanetScale"]
+    },
+    {
+      category: "AI / Data",
+      items: ["OpenAI", "LangChain", "Vertex AI", "BigQuery"]
+    },
+    {
+      category: "Operations",
+      items: ["Notion", "Linear", "Looker Studio", "Figma"]
+    }
+  ]
+
+  const trendingTopics = [
+    {
+      title: "RAGパターン実装ベストプラクティス",
+      description: "生成AI導入で避けられないガバナンスとログ設計のポイント",
+      tags: ["RAG", "LangChain", "LLMOps"],
+      icon: TrendingUp
+    },
+    {
+      title: "国内企業のAIガイドラインまとめ",
+      description: "金融・ヘルスケアでの運用規約とコンプライアンス対応",
+      tags: ["セキュリティ", "ガバナンス"],
+      icon: ShieldCheck
+    },
+    {
+      title: "Edge AIデバイス最新カタログ",
+      description: "製造DX・小売向けの省電力デバイスを比較",
+      tags: ["IoT", "Edge", "ハードウェア"],
+      icon: Cpu
+    }
+  ]
+
+  const aiResources = [
+    {
+      title: "AIプロジェクト立ち上げチェックリスト",
+      description: "ビジネス要件からPoC設計までを網羅したドキュメント",
+      type: "テンプレート",
+      icon: BookOpen
+    },
+    {
+      title: "AIマーケティング施策30選",
+      description: "顧客獲得・育成に効くAI活用アイデア集",
+      type: "eBook",
+      icon: Sparkles
+    },
+    {
+      title: "毎月開催ウェビナー",
+      description: "生成AI導入とUIデザインの成功事例を解説",
+      type: "ウェビナー",
+      icon: Calendar
+    }
+  ]
+
+  const faqs = [
+    {
+      question: "相談前に準備しておく資料はありますか？",
+      answer: "プロジェクトの背景、現状の課題、ターゲットユーザーや目標指標が分かる資料があるとスムーズです。フォーマットが無い場合はこちらでヒアリングシートをご用意します。"
+    },
+    {
+      question: "小規模プロジェクトにも対応していますか？",
+      answer: "はい。MVP開発や既存プロダクトの改善スプリントなど、期間や規模に合わせたプランをご提案しています。"
+    },
+    {
+      question: "海外向けサービスのローカライズは可能ですか？",
+      answer: "英語・日本語のバイリンガルUX設計や多言語対応CMS構築の実績があり、マーケティング面も含めて支援可能です。"
+    }
   ]
 
   useEffect(() => {
@@ -242,6 +437,43 @@ function App() {
         </div>
       </section>
 
+      {/* Value Proposition Section */}
+      <section className="py-16 px-4 bg-card/20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">選ばれる理由</h2>
+            <p className="text-xl text-muted-foreground">戦略から開発・グロースまで一気通貫で伴走します</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {valueProps.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ translateY: -6 }}
+              >
+                <Card className="h-full bg-card/60 backdrop-blur-sm border-border/40 hover:border-primary/50 transition-all duration-300">
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4">
+                      <item.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-lg">{item.title}</CardTitle>
+                    <CardDescription>{item.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
@@ -289,6 +521,66 @@ function App() {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
+          >
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">導入事例</h2>
+              <p className="text-lg text-muted-foreground">多様な業界の課題をデジタル体験で解決しています</p>
+            </div>
+            <Button variant="outline" className="w-fit">
+              すべての事例を見る
+            </Button>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {caseStudies.map((study, index) => (
+              <motion.div
+                key={study.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/60 transition-all duration-300">
+                  <CardHeader className="space-y-3">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <span className="font-medium tracking-wide text-primary">{study.id}</span>
+                      <Badge variant="secondary">{study.industry}</Badge>
+                    </div>
+                    <CardTitle className="text-xl">{study.title}</CardTitle>
+                    <CardDescription>{study.summary}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex gap-3">
+                      {study.metrics.map((metric) => (
+                        <div key={metric.label} className="flex-1 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-600/10 border border-primary/20 p-3 text-center">
+                          <div className="text-xs uppercase tracking-wide text-muted-foreground">{metric.label}</div>
+                          <div className="text-2xl font-bold text-primary">{metric.value}</div>
+                        </div>
+                      ))}
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {study.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-400 mt-1" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-16 px-4 bg-card/20">
         <div className="container mx-auto">
@@ -309,6 +601,158 @@ function App() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Workflow Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">プロジェクト進行フロー</h2>
+            <p className="text-xl text-muted-foreground">透明性の高いプロセスで確実に成果へ導きます</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {workflowSteps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/50 backdrop-blur-sm border-border/40">
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <step.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <span className="text-sm font-semibold text-muted-foreground">STEP {index + 1}</span>
+                    </div>
+                    <CardTitle className="text-lg">{step.title}</CardTitle>
+                    <CardDescription>{step.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 px-4 bg-card/20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">お客様の声</h2>
+            <p className="text-xl text-muted-foreground">プロダクト成長を実現したパートナーからのフィードバック</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300">
+                  <CardHeader>
+                    <Quote className="h-8 w-8 text-primary mb-4" />
+                    <CardDescription className="text-base text-foreground/80 leading-relaxed">
+                      “{testimonial.quote}”
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role} / {testimonial.company}</div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">対応テクノロジー</h2>
+            <p className="text-xl text-muted-foreground">信頼性と拡張性を両立するモダンスタックを採用</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {techStack.map((stack, index) => (
+              <motion.div
+                key={stack.category}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/50 backdrop-blur-sm border-border/40">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{stack.category}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {stack.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <Sparkles className="h-4 w-4 text-primary" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-card/20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <Card className="bg-gradient-to-br from-blue-500/20 via-purple-600/20 to-green-500/20 border border-primary/40">
+              <CardHeader className="text-center space-y-4">
+                <h3 className="text-3xl font-bold">AI×デザイン相談セッション</h3>
+                <CardDescription className="text-base text-foreground/80">
+                  プロダクトの現状をヒアリングし、改善ポイントとロードマップを45分で提案します。
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col md:flex-row gap-4 md:items-center">
+                  <Input placeholder="メールアドレスを入力" type="email" className="flex-1" />
+                  <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
+                    無料相談を申し込む
+                  </Button>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 text-center md:text-left">
+                  スパムは送信しません。相談前チェックリストも合わせてお送りします。
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -396,6 +840,51 @@ function App() {
           </h1>
           <p className="text-xl text-muted-foreground">最新のAI技術とトレンドをお届けします</p>
         </motion.div>
+
+        {/* Trending Topics */}
+        <div className="mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
+          >
+            <h2 className="text-2xl font-bold">注目トピック</h2>
+            <p className="text-sm text-muted-foreground">AI戦略に取り入れたいホットテーマを厳選</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {trendingTopics.map((topic, index) => (
+              <motion.div
+                key={topic.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/60 transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <topic.icon className="h-5 w-5 text-white" />
+                      </div>
+                      <CardTitle className="text-lg">{topic.title}</CardTitle>
+                    </div>
+                    <CardDescription>{topic.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {topic.tags.map((tag) => (
+                        <Badge key={tag} variant="outline" className="text-xs">
+                          #{tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Search and Filter */}
         <div className="mb-12">
@@ -504,6 +993,60 @@ function App() {
             <p className="text-muted-foreground">検索条件に一致する記事が見つかりませんでした。</p>
           </div>
         )}
+
+        {/* Resources */}
+        <div className="mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold mb-4">リソース &amp; イベント</h2>
+            <p className="text-lg text-muted-foreground">実務に役立つテンプレートやウェビナーを定期配信</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {aiResources.map((resource, index) => (
+              <motion.div
+                key={resource.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <resource.icon className="h-5 w-5 text-white" />
+                      </div>
+                      <Badge variant="secondary">{resource.type}</Badge>
+                    </div>
+                    <CardTitle className="text-lg">{resource.title}</CardTitle>
+                    <CardDescription>{resource.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <Card className="mt-12 bg-gradient-to-br from-blue-500/15 via-purple-600/15 to-green-500/15 border border-primary/30">
+            <CardHeader className="text-center space-y-3">
+              <h3 className="text-2xl font-semibold">AI最新情報ニュースレター</h3>
+              <CardDescription className="text-base text-foreground/80">
+                月2回の配信で、導入事例・プロダクトアップデート・イベント情報をまとめてご案内します。
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="max-w-2xl mx-auto flex flex-col md:flex-row gap-4 md:items-center">
+                <Input placeholder="メールアドレス" type="email" className="flex-1" />
+                <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
+                  購読する
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )
@@ -601,6 +1144,79 @@ function App() {
             </Card>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mt-16"
+        >
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-3">よくある質問</h2>
+            <p className="text-muted-foreground">初回打ち合わせ前に寄せられるご質問にお答えします</p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={faq.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="bg-card/50 backdrop-blur-sm border-border/40">
+                  <CardHeader className="space-y-2">
+                    <div className="flex items-center gap-3">
+                      <MessageCircle className="h-5 w-5 text-primary" />
+                      <CardTitle className="text-lg">{faq.question}</CardTitle>
+                    </div>
+                    <CardDescription className="text-base text-foreground/80 leading-relaxed">
+                      {faq.answer}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mt-16"
+        >
+          <Card className="bg-gradient-to-br from-blue-500/15 via-purple-600/15 to-green-500/15 border border-primary/30">
+            <CardHeader className="space-y-4 text-center md:text-left md:flex md:items-center md:justify-between">
+              <div>
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                  <Calendar className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-semibold text-muted-foreground">無料ヒアリング（45分）</span>
+                </div>
+                <h3 className="text-2xl font-bold">最短翌週からKick-offが可能です</h3>
+                <CardDescription className="text-base text-foreground/80 mt-2">
+                  現状把握からPoC計画、概算見積もりまでまとめてご案内。スピード感のある意思決定を支援します。
+                </CardDescription>
+              </div>
+              <Button size="lg" className="mt-4 md:mt-0 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
+                ヒアリングを予約する
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <ul className="grid md:grid-cols-3 gap-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-400" />課題整理ワークショップ
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-400" />AI活用ロードマップ提示
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-400" />概算予算と体制プラン
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </div>
   )
@@ -636,4 +1252,3 @@ function App() {
 }
 
 export default App
-
