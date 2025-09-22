@@ -29,7 +29,6 @@ import {
   Lightbulb,
   Layers,
   Cpu,
-  Quote,
   TrendingUp,
   BookOpen,
   Calendar,
@@ -155,45 +154,75 @@ function App() {
 
   const caseStudies = [
     {
-      id: 'Case 01',
-      title: "グローバルECプラットフォーム",
-      industry: "リテール",
-      summary: "越境EC向けにパフォーマンス最適化とUX刷新を実施",
-      metrics: [
-        { label: "CVR", value: "+128%" },
-        { label: "PV", value: "+84%" }
-      ],
-      highlights: [
-        "Next.js + headless CMSで運用負荷を削減",
-        "Lighthouse 95点以上を継続確保"
+      id: 'Web 01',
+      title: "AI Robot Science",
+      category: "Webサイト", 
+      url: "https://ai-robot-science.com/",
+      summary: "AI・ロボット分野の情報発信サイトを制作し、継続的な運用サポートを提供。",
+      supports: [
+        "サイト設計とデザイン制作",
+        "WordPressテーマとプラグインの保守",
+        "定期的なセキュリティ・バックアップ管理"
       ]
     },
     {
-      id: 'Case 02',
-      title: "AIサブスクリプションサービス",
-      industry: "SaaS",
-      summary: "マルチモーダルAIを活用した予約支援アプリを構築",
-      metrics: [
-        { label: "利用継続率", value: "92%" },
-        { label: "CSAT", value: "4.8/5" }
-      ],
-      highlights: [
-        "音声操作とチャットUIを統合",
-        "Stripe Billingで課金自動化"
+      id: 'Web 02',
+      title: "freeas.jp",
+      category: "Webサイト",
+      url: "https://freeas.jp/",
+      summary: "フリーランス支援サービスのコーポレートサイトを構築し、更新作業と改善提案を実施。",
+      supports: [
+        "コンテンツ更新とデザイン調整",
+        "お問い合わせ導線の最適化",
+        "運用レポートの定期共有"
       ]
     },
     {
-      id: 'Case 03',
-      title: "製造業向けIoTダッシュボード",
-      industry: "製造",
-      summary: "リアルタイム監視と異常検知を備えたデータ基盤を構築",
-      metrics: [
-        { label: "アラート削減", value: "-63%" },
-        { label: "導入拠点", value: "12" }
-      ],
-      highlights: [
-        "WebGLグラフで機器ステータスを可視化",
-        "エッジAI連携でダウンタイムを最小化"
+      id: 'Web 03',
+      title: "EAFONS",
+      category: "Webサイト",
+      url: "https://www.eafons.org/",
+      summary: "国際看護学会の公式サイトを継続管理し、イベント情報の最新化をサポート。",
+      supports: [
+        "多言語ページの更新管理",
+        "イベント・ニュースのタイムリーな掲載",
+        "アクセス性向上のための軽微な機能追加"
+      ]
+    },
+    {
+      id: 'Web 04',
+      title: "助産ケア・ナラティブ",
+      category: "Webサイト",
+      url: "https://midwifery-care-narrative.com/",
+      summary: "助産ケアの情報サイトを管理し、読みやすさを重視した更新と運用を担当。",
+      supports: [
+        "記事・コンテンツ投入のサポート",
+        "モバイル表示の最適化",
+        "アクセス解析をもとにした改善提案"
+      ]
+    },
+    {
+      id: 'Web 05',
+      title: "氷川台あおば眼科",
+      category: "Webサイト",
+      url: "https://hikawadai-eye.com/",
+      summary: "クリニックの公式サイトを管理し、診療情報の更新と保守を継続。",
+      supports: [
+        "診療カレンダー・お知らせの更新",
+        "表示速度とアクセシビリティの調整",
+        "SSL証明書やサーバー保守のサポート"
+      ]
+    },
+    {
+      id: 'EC 01',
+      title: "WOOD FIELD オンラインストア",
+      category: "ECサイト",
+      url: "https://woodfield.base.shop/",
+      summary: "ハンドメイド雑貨のECサイトを制作し、商品登録や販促施策を支援。",
+      supports: [
+        "ショップデザインと商品カテゴリ設計",
+        "配送・在庫設定のチューニング",
+        "キャンペーン運用と更新代行"
       ]
     }
   ]
@@ -218,21 +247,6 @@ function App() {
       icon: CheckCircle,
       title: "リリース & グロース支援",
       description: "運用・計測体制を整備し、継続的な成長施策を伴走サポート"
-    }
-  ]
-
-  const testimonials = [
-    {
-      name: "山口 拓真",
-      role: "プロダクトマネージャー",
-      company: "Aurora Labs",
-      quote: "短期間で海外SaaSレベルのUIに刷新でき、カスタマーサクセス指標が飛躍的に改善しました。コミュニケーションもスムーズで安心して任せられました。"
-    },
-    {
-      name: "佐藤 智子",
-      role: "マーケティング責任者",
-      company: "Nova Commerce",
-      quote: "初回のヒアリングからデータを軸に提案してくれたのが印象的でした。ABテストが回しやすい設計で、CVRが着実に伸びています。"
     }
   ]
 
@@ -551,25 +565,29 @@ function App() {
                   <CardHeader className="space-y-3">
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <span className="font-medium tracking-wide text-primary">{study.id}</span>
-                      <Badge variant="secondary">{study.industry}</Badge>
+                      <Badge variant="secondary">{study.category}</Badge>
                     </div>
                     <CardTitle className="text-xl">{study.title}</CardTitle>
                     <CardDescription>{study.summary}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex gap-3">
-                      {study.metrics.map((metric) => (
-                        <div key={metric.label} className="flex-1 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-600/10 border border-primary/20 p-3 text-center">
-                          <div className="text-xs uppercase tracking-wide text-muted-foreground">{metric.label}</div>
-                          <div className="text-2xl font-bold text-primary">{metric.value}</div>
-                        </div>
-                      ))}
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">運用サポート</span>
+                      <a
+                        href={study.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center text-primary hover:underline"
+                      >
+                        サイトを見る
+                        <ChevronRight className="ml-1 h-3 w-3" />
+                      </a>
                     </div>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      {study.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-2">
+                      {study.supports.map((support) => (
+                        <li key={support} className="flex items-start gap-2">
                           <CheckCircle className="h-4 w-4 text-green-400 mt-1" />
-                          <span>{highlight}</span>
+                          <span>{support}</span>
                         </li>
                       ))}
                     </ul>
@@ -636,45 +654,6 @@ function App() {
                     <CardTitle className="text-lg">{step.title}</CardTitle>
                     <CardDescription>{step.description}</CardDescription>
                   </CardHeader>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 px-4 bg-card/20">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">お客様の声</h2>
-            <p className="text-xl text-muted-foreground">プロダクト成長を実現したパートナーからのフィードバック</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-              >
-                <Card className="h-full bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300">
-                  <CardHeader>
-                    <Quote className="h-8 w-8 text-primary mb-4" />
-                    <CardDescription className="text-base text-foreground/80 leading-relaxed">
-                      “{testimonial.quote}”
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role} / {testimonial.company}</div>
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
