@@ -3,7 +3,6 @@ import {
   ArrowRight,
   Check,
   ChevronRight,
-  ExternalLink,
   FileText,
   Globe2,
   Mail,
@@ -54,12 +53,12 @@ const services = [
 ]
 
 const projects = [
-  { code: 'WEB / 01', name: 'AI Robot Science', url: 'https://ai-robot-science.com/', category: 'AI・ロボット情報サイト', tone: 'project-blue' },
-  { code: 'WEB / 02', name: 'freeas.jp', url: 'https://freeas.jp/', category: 'フリーランス支援', tone: 'project-purple' },
-  { code: 'WEB / 03', name: 'EAFONS', url: 'https://www.eafons.org/', category: '国際学会サイト', tone: 'project-green' },
-  { code: 'WEB / 04', name: '助産ケア・ナラティブ', url: 'https://midwifery-care-narrative.com/', category: '医療・研究情報サイト', tone: 'project-coral' },
-  { code: 'WEB / 05', name: '氷川台あおば眼科', url: 'https://hikawadai-eye.com/', category: 'クリニックサイト', tone: 'project-cyan' },
-  { code: 'EC / 01', name: 'WOOD FIELD', url: 'https://woodfield.base.shop/', category: 'オンラインストア', tone: 'project-amber' },
+  { code: 'WEB / 01', name: 'AI・ロボット系情報サイト', category: 'Webサイト制作・運用', tone: 'project-blue' },
+  { code: 'WEB / 02', name: 'フリーランス支援サイト', category: 'Webサイト制作・改善', tone: 'project-purple' },
+  { code: 'WEB / 03', name: '国際学会系サイト', category: '多言語サイト運用', tone: 'project-green' },
+  { code: 'WEB / 04', name: '医療・研究系情報サイト', category: 'Webサイト制作・運用', tone: 'project-coral' },
+  { code: 'WEB / 05', name: '医療系クリニックサイト', category: 'Webサイト運用・更新', tone: 'project-cyan' },
+  { code: 'EC / 01', name: 'ハンドメイド系ECサイト', category: 'オンラインストア制作', tone: 'project-amber' },
 ]
 
 const process = [
@@ -284,21 +283,17 @@ function App() {
 
           <div className="project-grid">
             {projects.map((project, index) => (
-              <Motion.a
+              <Motion.article
                 className={`project-card ${project.tone}`}
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
                 key={project.name}
-                aria-label={`${project.name}のサイトを見る（新しいタブで開きます）`}
                 {...motionProps}
                 transition={{ ...motionProps.transition, delay: (index % 3) * 0.08 }}
               >
                 <div className="project-noise" aria-hidden="true" />
-                <div className="project-meta"><span>{project.code}</span><ExternalLink size={17} /></div>
+                <div className="project-meta"><span>{project.code}</span><span>CASE STUDY</span></div>
                 <div className="project-orbit" aria-hidden="true"><span /></div>
                 <div><p>{project.category}</p><h3>{project.name}</h3></div>
-              </Motion.a>
+              </Motion.article>
             ))}
           </div>
         </section>
